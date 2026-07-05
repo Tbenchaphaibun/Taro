@@ -6,15 +6,15 @@
 radius = 14.0
 height = 38.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=913217875 groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=913217875 node_paths=PackedStringArray("pivot") groups=["player"]]
 script = ExtResource("1_v0iea")
-speed = 250
+pivot = NodePath("")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=686771551]
-offset_left = -10.0
-offset_top = -15.0
-offset_right = 10.0
-offset_bottom = 15.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1475625581]
+offset_left = -15.0
+offset_top = -19.0
+offset_right = 14.0
+offset_bottom = 19.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1402263984]
 shape = SubResource("CapsuleShape2D_88kja")
