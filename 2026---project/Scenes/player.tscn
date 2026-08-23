@@ -1,20 +1,133 @@
 [gd_scene format=3 uid="uid://dvy220kwag6kn"]
 
 [ext_resource type="Script" uid="uid://0lqg1ey8rlxr" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://ll5l8vpn2c1k" path="res://assets/frame0004.png" id="2_qqcod"]
+[ext_resource type="Texture2D" uid="uid://exw17gh0ixk8" path="res://assets/frame0005.png" id="3_igrcy"]
+[ext_resource type="Texture2D" uid="uid://83u4smdghjg3" path="res://assets/frame0000.png" id="4_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://cpdkuc1y333s7" path="res://assets/frame0001.png" id="5_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://pu7nob5r1rlt" path="res://assets/frame0009.png" id="6_olqyp"]
+[ext_resource type="Texture2D" uid="uid://dxsbtdkfxol2s" path="res://assets/frame0010.png" id="7_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://dpqjaje6opxn" path="res://assets/frame0015.png" id="8_bi64h"]
+[ext_resource type="Texture2D" uid="uid://cleh8taqsf2hi" path="res://assets/frame0016.png" id="9_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://miftpl6og1jg" path="res://assets/frame0006.png" id="10_p1odr"]
+[ext_resource type="Texture2D" uid="uid://db2jdtt4pogvf" path="res://assets/frame0007.png" id="11_0gysh"]
+[ext_resource type="Texture2D" uid="uid://dwiep3nrbmi3y" path="res://assets/frame0008.png" id="12_vfarp"]
+[ext_resource type="Texture2D" uid="uid://c633ydxdqjvhf" path="res://assets/frame0002.png" id="13_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://bnsrevawyrwmh" path="res://assets/frame0011.png" id="14_83xs0"]
+[ext_resource type="Texture2D" uid="uid://dpk364rb5aylb" path="res://assets/frame0012.png" id="15_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://tmkmsaxecb3l" path="res://assets/frame0013.png" id="16_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://bgfjnitg3yvh4" path="res://assets/frame0014.png" id="17_wohnl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88kja"]
-radius = 14.0
-height = 38.0
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_36dho"]
+load_path = "res://.godot/imported/frame0003.png-213783d749df43e9da7c9dfc511e3509.ctex"
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=913217875 node_paths=PackedStringArray("pivot") groups=["player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yh6i2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qqcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_igrcy")
+}],
+"loop": true,
+"name": &"idle-back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fs7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l6n3p")
+}],
+"loop": true,
+"name": &"idle-front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_olqyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wpjfl")
+}],
+"loop": true,
+"name": &"idle-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bi64h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2ijsl")
+}],
+"loop": true,
+"name": &"idle-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_p1odr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0gysh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vfarp")
+}],
+"loop": true,
+"name": &"walk-back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_y6uwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_36dho")
+}],
+"loop": true,
+"name": &"walk-front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_83xs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ypfnu")
+}],
+"loop": true,
+"name": &"walk-left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_xuaoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wohnl")
+}],
+"loop": true,
+"name": &"walk-right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nv4vc"]
+
+[node name="Node2D" type="Node2D" unique_id=1479475289]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1116084962]
 script = ExtResource("1_v0iea")
-pivot = NodePath("")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1475625581]
-offset_left = -15.0
-offset_top = -19.0
-offset_right = 14.0
-offset_bottom = 19.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=812117181]
+position = Vector2(10, 6)
+sprite_frames = SubResource("SpriteFrames_yh6i2")
+animation = &"idle-front"
+autoplay = "idle-front"
+frame_progress = 0.70567954
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1402263984]
-shape = SubResource("CapsuleShape2D_88kja")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=666959165]
+shape = SubResource("CircleShape2D_nv4vc")
