@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cleh8taqsf2hi" path="res://assets/frame0016.png" id="9_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://miftpl6og1jg" path="res://assets/frame0006.png" id="10_p1odr"]
 [ext_resource type="Texture2D" uid="uid://db2jdtt4pogvf" path="res://assets/frame0007.png" id="11_0gysh"]
-[ext_resource type="Texture2D" uid="uid://dwiep3nrbmi3y" path="res://assets/frame0008.png" id="12_vfarp"]
 [ext_resource type="Texture2D" uid="uid://c633ydxdqjvhf" path="res://assets/frame0002.png" id="13_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://bnsrevawyrwmh" path="res://assets/frame0011.png" id="14_83xs0"]
 [ext_resource type="Texture2D" uid="uid://dpk364rb5aylb" path="res://assets/frame0012.png" id="15_ypfnu"]
@@ -73,13 +72,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_0gysh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_vfarp")
 }],
 "loop": true,
 "name": &"walk-back",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -123,11 +119,14 @@ animations = [{
 script = ExtResource("1_v0iea")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=812117181]
-position = Vector2(10, 6)
+position = Vector2(10, 8)
 sprite_frames = SubResource("SpriteFrames_yh6i2")
-animation = &"idle-front"
+animation = &"walk-back"
 autoplay = "idle-front"
-frame_progress = 0.70567954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=666959165]
 shape = SubResource("CircleShape2D_nv4vc")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=808389598]
+zoom = Vector2(2.165, 2.165)
+position_smoothing_enabled = true

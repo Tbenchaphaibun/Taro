@@ -4,7 +4,9 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var pivot = Node2D
-# Called when the node enters the scene tree for the first time.
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+#Remember which ways the player last face, idle will know way to stand.
+var last_direction ="front"
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -20,4 +22,19 @@ func _process(delta: float) -> void:
 	velocity = speed * direction.normalized()
 	
 	move_and_slide()
+	update_animation(direction)
 	
+func update_animation(direction: Vector2) -> void:
+	if direction == Vector2.ZERO:
+		animated_sprite.play("idle-" + last_direction)
+		return
+	if abs(direction.x) > abs(direction.y):
+		if direction.x < 0:
+			last_direction ="left"
+		else:
+			last_direction ="right"
+	elif direction.y < 0:
+		last_direction = "back"
+	else:
+		last_direction = "front"
+	animated_sprite.play("walk-" + last_direction)
