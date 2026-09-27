@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bwuxs1vd1xa3l"]
+
+[ext_resource type="Script" uid="uid://dk1yfyp5sl48p" path="res://Scripts/crop.gd" id="1_o832f"]
+[ext_resource type="PackedScene" uid="uid://uq2pt0iys2qo" path="res://Scenes/dropped_turnip.tscn" id="2_o832f"]
+[ext_resource type="Texture2D" uid="uid://dimt46c4sdktx" path="res://assets/Basic Plants.png" id="3_kmeu0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o832f"]
+atlas = ExtResource("3_kmeu0")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ce4d"]
+atlas = ExtResource("3_kmeu0")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmeu0"]
+atlas = ExtResource("3_kmeu0")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60bkh"]
+atlas = ExtResource("3_kmeu0")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rxg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o832f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ce4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmeu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60bkh")
+}],
+"loop": true,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[node name="turnip" type="Node2D" unique_id=1381384992]
+script = ExtResource("1_o832f")
+crop_name = "Turnip"
+drop_item_scene = ExtResource("2_o832f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1515111002]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_7rxg7")
+animation = &"grow"

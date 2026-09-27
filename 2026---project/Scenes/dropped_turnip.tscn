@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://uq2pt0iys2qo"]
+
+[ext_resource type="Script" uid="uid://dgeyd0is0n3w8" path="res://Scripts/dropped_item.gd" id="1_rxoia"]
+[ext_resource type="Texture2D" uid="uid://boj2hqvxnfoxx" path="res://assets/turnip_item.png" id="2_rxoia"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ljfv"]
+radius = 9.0
+
+[sub_resource type="GDScript" id="GDScript_ndnmo"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="droppedItem" type="Area2D" unique_id=503157432]
+script = ExtResource("1_rxoia")
+item_name = "Turnip"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1026466389]
+texture = ExtResource("2_rxoia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1263638982]
+shape = SubResource("CircleShape2D_4ljfv")
+script = SubResource("GDScript_ndnmo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

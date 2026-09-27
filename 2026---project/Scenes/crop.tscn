@@ -1,3 +1,50 @@
 [gd_scene format=3 uid="uid://dk6fdnkjdsfds"]
 
-[node name="Node2D" type="Node2D" unique_id=1381384992]
+[ext_resource type="Script" uid="uid://dk1yfyp5sl48p" path="res://Scripts/crop.gd" id="1_7rxg7"]
+[ext_resource type="Texture2D" uid="uid://dimt46c4sdktx" path="res://assets/Basic Plants.png" id="2_djpt6"]
+[ext_resource type="PackedScene" uid="uid://7tygk2igeiel" path="res://Scenes/dropped_item.tscn" id="2_rqw3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqw3c"]
+atlas = ExtResource("2_djpt6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi28c"]
+atlas = ExtResource("2_djpt6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_werqa"]
+atlas = ExtResource("2_djpt6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc262"]
+atlas = ExtResource("2_djpt6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rxg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqw3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi28c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_werqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc262")
+}],
+"loop": true,
+"name": &"grow",
+"speed": 5.0
+}]
+
+[node name="Crop" type="Node2D" unique_id=1381384992]
+script = ExtResource("1_7rxg7")
+drop_item_scene = ExtResource("2_rqw3c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1515111002]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_7rxg7")
+animation = &"grow"

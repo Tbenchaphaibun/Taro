@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://tys8o80wknh0"]
+
+[ext_resource type="Script" uid="uid://dbbj8rc6pplgg" path="res://Scripts/inventory_ui.gd" id="1_8su62"]
+
+[node name="InventoryUI" type="Control" unique_id=385266317]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8su62")
+
+[node name="Label" type="Label" parent="." unique_id=1552031897]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -11,6 +11,8 @@ texture = ExtResource("2_v1amf")
 0:0/animation_frame_2/duration = 0.2
 0:0/animation_frame_3/duration = 0.2
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1amf"]
 texture = ExtResource("2_tkbyn")
@@ -228,6 +230,7 @@ texture = ExtResource("2_tkbyn")
 5:2/0/terrains_peering_bit/top_side = 0
 
 [resource]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "grass terrain"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
